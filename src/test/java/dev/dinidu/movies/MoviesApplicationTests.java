@@ -1,4 +1,4 @@
-package dev.dinidu.Movies;
+package dev.dinidu.movies;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
