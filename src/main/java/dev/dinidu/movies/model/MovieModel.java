@@ -21,9 +21,6 @@ public class MovieModel {
     @DocumentReference
     private List<ReviewModel> reviews;
 
-    public MovieModel() {
-    }
-
     public MovieModel(String imdbId, String title, String releaseDate, String trailerLink, String poster, List<String> backdrops, List<String> genres) {
         this.imdbId = imdbId;
         this.title = title;
@@ -34,14 +31,19 @@ public class MovieModel {
         this.genres = genres;
     }
 
-
-    public ObjectId getId() {
-        return id;
+    public MovieModel() {
     }
 
-    public MovieModel setId(ObjectId id) {
+    public MovieModel(List<ReviewModel> reviews, List<String> genres, List<String> backdrops, String poster, String trailerLink, String releaseDate, String title, String imdbId, ObjectId id) {
+        this.reviews = reviews;
+        this.genres = genres;
+        this.backdrops = backdrops;
+        this.poster = poster;
+        this.trailerLink = trailerLink;
+        this.releaseDate = releaseDate;
+        this.title = title;
+        this.imdbId = imdbId;
         this.id = id;
-        return this;
     }
 
     public List<ReviewModel> getReviews() {
@@ -53,12 +55,12 @@ public class MovieModel {
         return this;
     }
 
-    public List<String> getGenres() {
-        return genres;
+    public ObjectId getId() {
+        return id;
     }
 
-    public MovieModel setGenres(List<String> genres) {
-        this.genres = genres;
+    public MovieModel setId(ObjectId id) {
+        this.id = id;
         return this;
     }
 
@@ -68,6 +70,15 @@ public class MovieModel {
 
     public MovieModel setBackdrops(List<String> backdrops) {
         this.backdrops = backdrops;
+        return this;
+    }
+
+    public List<String> getGenres() {
+        return genres;
+    }
+
+    public MovieModel setGenres(List<String> genres) {
+        this.genres = genres;
         return this;
     }
 
@@ -114,20 +125,5 @@ public class MovieModel {
     public MovieModel setImdbId(String imdbId) {
         this.imdbId = imdbId;
         return this;
-    }
-
-    @Override
-    public String toString() {
-        return "MovieModel{" +
-                "id=" + id +
-                ", imdbId='" + imdbId + '\'' +
-                ", title='" + title + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", trailerLink='" + trailerLink + '\'' +
-                ", poster='" + poster + '\'' +
-                ", backdrops=" + backdrops +
-                ", genres=" + genres +
-                ", reviews=" + reviews +
-                '}';
     }
 }
